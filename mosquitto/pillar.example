@@ -4,10 +4,14 @@ mosquitto:
   config:
     bind_address: 0.0.0.0
     port: 1883
+    # Set to True to authenticate users.
     allow_anonymous: False
+    password_file: /etc/mosquitto/pwfile
     persistence: True
   auth:
-    # Contents of users is written directly into the password file
-    # Generate with: mosquitto_passwd -c /dev/stdout <username>
+    # Contents of 'users' is written directly into the password file
+    # Omit 'users' if you wish to create it manually.
+    # Generate entries with: mosquitto_passwd -c /dev/stdout <username>
     users: |
+      alice:$6$2bgRqo43gDWCE34iong+Gn83ng34wNG4ng84nggNIN58n8hn5hfENHe5nge8ng5g/lgegon5eogneg%GNGIENGgn5igneoUSHFS+R5R==
       bob:$6$2z07aRKw1mL4RwnN$RmD+WARRg4ounj9KDOU1O4j7Gq8iBPWtAkCK7yL4yx0ZC5g/lwfLmLU5SlmGidTfPZD+ZavenXY5yUSHFS+8Sw==

@@ -3,7 +3,7 @@
 
 {% from "mosquitto/map.jinja" import mosquitto with context %}
 
-{% if mosquitto.config.allow_anonymous == 'false' %}
+{% if mosquitto.auth.users %}
 {{ mosquitto.config.password_file }}:
   file.managed:
     - contents_pillar: mosquitto:auth:users
