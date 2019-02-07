@@ -1,0 +1,13 @@
+mosquitto:
+  enabled; True
+  # Config values should match exactly those expected in mosquitto.conf
+  config:
+    bind_address: 0.0.0.0
+    port: 1883
+    allow_anonymous: False
+    persistence: True
+  auth:
+    # Contents of users is written directly into the password file
+    # Generate with: mosquitto_passwd -c /dev/stdout <username>
+    users: |
+      bob:$6$2z07aRKw1mL4RwnN$RmD+WARRg4ounj9KDOU1O4j7Gq8iBPWtAkCK7yL4yx0ZC5g/lwfLmLU5SlmGidTfPZD+ZavenXY5yUSHFS+8Sw==

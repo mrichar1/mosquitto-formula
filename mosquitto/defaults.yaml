@@ -1,0 +1,20 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+mosquitto:
+  service: mosquitto
+  enabled: True
+  pkg: mosquitto
+  user: mosquitto
+  group: mosquitto
+  conf_file: /etc/mosquitto/mosquitto.conf
+  config:
+    allow_anonymous: True
+    password_file: /etc/mosquitto/pwfile
+    bind_address: 127.0.0.1
+    port: 1883
+    persistence: True
+    persistence_location: /var/lib/mosquitto
+    log_dest: file /var/log/mosquitto/mosquitto.log
+    include_dir: /etc/mosquitto/conf.d
+    pid_file: /var/run/mosquitte.pid
+
