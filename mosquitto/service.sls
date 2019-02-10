@@ -8,6 +8,7 @@
     - enable: True
     - watch:
       - file: {{ mosquitto.conf_file }}
+      - file: {{ mosquitto.config.password_file }}
 {% else %}
   service.dead:
     - enable: False
