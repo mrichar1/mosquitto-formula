@@ -9,15 +9,19 @@ mosquitto:
     port: 1883
     persistence: True
 
-    # Set to True to authenticate users.
+    # Set to True to allow anonymous users.
     allow_anonymous: False
-
-    # Default path to pwfile
     password_file: /etc/mosquitto/pwfile
+
+    # Create a new SSL listener on 8883
+    listener 8883:
+      capath: /etc/ssl/certs
+      certfile: /etc/mosquitto/cert.pem
+      keyfile: /etc/mosquitto/key.pem
 
   auth:
     # Contents of 'users' is written directly into the password_file
-    # Omit 'users' if you wish to create it manually.
+    # Omit 'users' if you wish to create password_file manually.
     # Generate entries with 'mosquitto_passwd' command.
     users: |
       alice:$6$2bgRqo43gDWCE34iong+Gn83ng34wNG4ng84nggNIN58n8hn5hfENHe5nge8ng5g/lgegon5eogneg%GNGIENGgn5igneoUSHFS+R5R==
